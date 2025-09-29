@@ -6,10 +6,6 @@ def product_with_categories(
     categories: DataFrame, 
     product_category: DataFrame
 ) -> DataFrame:
-    """
-    Возвращает датафрейм со всеми парами (product_name, category_name) 
-    и продуктами без категорий (category_name=None).
-    """
     return (
         products.alias('p')
         .join(product_category.alias('pc'), F.col('p.product_id') == F.col('pc.product_id'), 'left')
